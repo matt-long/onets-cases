@@ -15,8 +15,6 @@ USER = os.environ["USER"]
 
 scriptroot = os.path.dirname(os.path.realpath(__file__))
 
-project = "P93300670"
-
 project_root = f"/glade/work/{USER}/onets-cases"
 os.makedirs(project_root, exist_ok=True)
 
@@ -38,12 +36,13 @@ nmolcm2_to_molm2 = 1.0e-9 * 1.0e4
 def create_clone(
     case,
     alk_forcing_file='none',
-    fe_fert_forcing_file='none',    
+    fe_fert_forcing_file='none',
     refdate="0347-01-01",
     stop_n=4,
     stop_option="nyear",
     job_queue="economy",
     wallclock="12:00:00",
+    project="P93300670",
     clobber=False,
     submit=False,
 ):
