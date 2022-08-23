@@ -926,7 +926,13 @@ contains
                      year_last=alk_forcing_shr_stream_year_last,                                 &
                      year_align=alk_forcing_shr_stream_year_align,                               &
                      filename=alk_forcing_shr_stream_file,                                       &
-                     rank=2, id=n)          
+                     rank=2, id=n)
+            else
+                call surface_flux_forcings(n)%add_forcing_field(field_source='const',            &
+                     marbl_varname=marbl_varname,                                                &
+                     field_units=units,                                                          &
+                     field_constant=0.0_r8,                                                      &
+                     rank=2, id=n)                     
             end if
 
         case ('Fe Fertilization Flux')
@@ -935,13 +941,19 @@ contains
                      strdata_inputlist_ptr=surface_strdata_inputlist_ptr,                        &
                      marbl_varname=marbl_varname,                                                &
                      field_units=units,                                                          &
-                     unit_conv_factor=fe_fert_forcing_shr_stream_scale_factor,                       &
-                     file_varname='fe_fert_forcing',                                                 &
-                     year_first=fe_fert_forcing_shr_stream_year_first,                               &
-                     year_last=fe_fert_forcing_shr_stream_year_last,                                 &
-                     year_align=fe_fert_forcing_shr_stream_year_align,                               &
-                     filename=fe_fert_forcing_shr_stream_file,                                       &
+                     unit_conv_factor=fe_fert_forcing_shr_stream_scale_factor,                   &
+                     file_varname='fe_fert_forcing',                                             &
+                     year_first=fe_fert_forcing_shr_stream_year_first,                           &
+                     year_last=fe_fert_forcing_shr_stream_year_last,                             &
+                     year_align=fe_fert_forcing_shr_stream_year_align,                           &
+                     filename=fe_fert_forcing_shr_stream_file,                                   &
                      rank=2, id=n)          
+            else
+                call surface_flux_forcings(n)%add_forcing_field(field_source='const',            &
+                     marbl_varname=marbl_varname,                                                &
+                     field_units=units,                                                          &
+                     field_constant=0.0_r8,                                                      &
+                     rank=2, id=n)
             end if
             
         case ('external C Flux')
